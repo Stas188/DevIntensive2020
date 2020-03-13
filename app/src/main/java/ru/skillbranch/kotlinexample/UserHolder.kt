@@ -36,7 +36,7 @@ object UserHolder {
     fun registerUserByPhone(name: String, rawPhone: String): User {
         var number = rawPhone.trimPhoneNumber()
         if (!number.isValidNumber()) throw IllegalArgumentException("Enter a valid phone number starting with a + and containing 11 digits")
-        if (map.keys.contains(number)) throw IllegalArgumentException("A user with this email already exists")
+        if (map.keys.contains(number)) throw IllegalArgumentException("A user with this phone already exists")
         return User.makeUser(name,phone = number).also { map[it.login] = it}
     }
 
